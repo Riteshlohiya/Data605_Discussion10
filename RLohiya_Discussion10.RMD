@@ -1,0 +1,51 @@
+---
+title: "Data605 Discussion 10"
+author: "Ritesh Lohiya"
+date: "October 30, 2018"
+output: html_document
+---
+
+#                             Discussion 10
+
+#           IS 605 FUNDAMENTALS OF COMPUTATIONAL MATHEMATICS
+
+#                       Chapter 11: Markov Chains
+
+I will be doing Exercise 3, Page 414
+
+Exercise 3: In Example 11.5 find P, $P^2,$ and $P^3$. What is $P^n?$
+
+Example 11.5 Each time a certain horse runs in a three-horse race, he has proba- bility 1/2 of winning, 1/4 of coming in second, and 1/4 of coming in third, indepen- dent of the outcome of any previous race. We have an independent trials process, but it can also be considered from the point of view of Markov chain theory. The transition matrix is
+
+```{r}
+P = matrix(c(.5, .25, .25,
+             .5, .25, .25,
+             .5, .25, .25), nrow = 3, ncol = 3, byrow=T)
+
+P
+```
+
+$P^2$:
+
+```{r}
+P2 = P %*% P
+P2
+```
+
+$P^3$:
+
+```{r}
+P3 = P2 %*% P
+P3
+```
+
+Suppose n = 4 then $P^n$:
+
+$P^4$:
+
+```{r}
+P4 = P3 %*% P
+P4
+```
+
+Therefore $P^n$ will be equal to P.
